@@ -79,9 +79,9 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 }
 
 /**
- *  * free_dlistint - Frees a doubly linked list
- *   * @head: Head of list
- *    */
+ * free_dlistint - Frees a doubly linked list
+ * @head: Head of list
+ */
 
 void free_dlistint(dlistint_t *head)
 {

@@ -82,6 +82,10 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index);
 #define POP_FAIL "L%u: can't pop an empty stack\n"
 #define SWAP_FAIL "L%u: can't swap, stack too short\n"
 #define ADD_FAIL "L%u: can't add, stack too short\n"
+#define SUB_FAIL "L%u: can't sub, stack too short\n"
+#define DIV_FAIL "L%u: can't div, stack too short\n"
+#define DIV_ZERO "L%u: division by zero\n"
+#define MUL_FAIL "L%u: can't mul, stack too short\n"
 
 int get_func(char *opc);
 void data_init(void);
@@ -93,5 +97,8 @@ void _pop(stack_t **stack, unsigned int line_number);
 void _swap(stack_t **stack, unsigned int line_number);
 void _add(stack_t **stack, unsigned int line_number);
 void _nop(stack_t **stack, unsigned int line_number);
+void _sub(stack_t **stack, unsigned int line_number);
+void _div(stack_t **stack, unsigned int line_number);
+void _mul(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */

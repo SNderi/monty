@@ -19,12 +19,15 @@ int get_func(char *opc)
 		{"swap", _swap},
 		{"add", _add},
 		{"nop", _nop},
+		{"sub", _sub},
+		{"div", _div},
+		{"mul", _mul},
 		{NULL, NULL}
 	};
 
 	for (i = 0; opcodes[i].opcode && opc; i++)
 	{
-		if (!strcmp(opc, opcodes[i].opcode))
+		if (strcmp(opc, opcodes[i].opcode) == 0)
 		{
 			opcodes[i].f(&(data.stack), data.line_number);
 			return (0);

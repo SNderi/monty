@@ -13,15 +13,15 @@ int get_func(char *opc)
 
 	instruction_t opcodes[] = {
 		{"push", _push},
+		{"pall", _pall},
 		/**
-		*{"pall", _pall},
 		*{"pint", _pint},
 		*{"pop", _pop},
 		*{"swap", _swap},
 		*{"add", _add},
 		*{"nop", _nop},
-		*{NULL, NULL}
 		*/
+		{NULL, NULL}
 	};
 
 	for (i = 0; opcodes[i].opcode && opc; i++)

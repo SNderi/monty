@@ -14,7 +14,7 @@ void _add(stack_t **stack, unsigned int line_number)
 
 	if (dlistint_len(*stack) < 2)
 	{
-		dprintf(STDERR_FILENO, ADD_FAIL, line_number);
+		fprintf(stderr, ADD_FAIL, line_number);
 		exit_op();
 		exit(EXIT_FAILURE);
 	}
@@ -25,7 +25,7 @@ void _add(stack_t **stack, unsigned int line_number)
 	node = add_dnodeint(stack, sum);
 	if (!node)
 	{
-		dprintf(STDERR_FILENO, MALLOC_FAIL);
+		fprintf(stderr, MALLOC_FAIL);
 		exit_op();
 		exit(EXIT_FAILURE);
 	}
@@ -40,4 +40,4 @@ void _nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
-
+}

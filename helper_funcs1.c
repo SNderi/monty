@@ -45,7 +45,7 @@ void _pint(stack_t **stack, unsigned int line_number)
 
 	if (!head)
 	{
-		dprintf(STDERR_FILENO, PINT_FAIL, line_number);
+		fprintf(stderr, PINT_FAIL, line_number);
 		exit_op();
 		exit(EXIT_FAILURE);
 	}
@@ -63,7 +63,7 @@ void _pop(stack_t **stack, unsigned int line_number)
 
 	if (!temp)
 	{
-		dprintf(STDERR_FILENO, POP_FAIL, line_number);
+		fprintf(stderr, POP_FAIL, line_number);
 		exit_op();
 		exit(EXIT_FAILURE);
 	}
@@ -82,7 +82,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 
 	if (dlistint_len(*stack) < 2)
 	{
-		dprintf(STDERR_FILENO, SWAP_FAIL, line_number);
+		fprintf(stderr, SWAP_FAIL, line_number);
 		exit_op();
 		exit(EXIT_FAILURE);
 	}
@@ -93,7 +93,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 	node = insert_dnodeint_at_index(stack, 1, num);
 	if (!node)
 	{
-		dprintf(STDERR_FILENO, MALLOC_FAIL);
+		fprintf(stderr, MALLOC_FAIL);
 		exit_op();
 		exit(EXIT_FAILURE);
 	}

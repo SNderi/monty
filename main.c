@@ -2,6 +2,7 @@
 #define _GNU_SOURCE
 
 data_t data;
+void data_init(void);
 
 /**
  * main - monty interpreter
@@ -13,10 +14,12 @@ data_t data;
 
 int main(int ac, char **av)
 {
+	FILE *fptr;
+	char *buf = NULL;
 	size_t len = 0;
-	int read;
+	ssize_t read;
 	char *tok = NULL;
-	char *delim = " \n\t";
+	char *delim = " \n\t\r";
 
 	if (ac != 2)
 	{
@@ -24,22 +27,26 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 
-	data.fp = fopen(av[1], "r");
-	if (data.fp == NULL)
+	fptr = fopen(av[1], "r");
+	if (fptr == NULL)
 	{
 		fprintf(stderr, FILE_ERROR, av[1]);
 		exit(EXIT_FAILURE);
 	}
 
+	data.fp = fptr;
 	data_init();
-	read = getline(&(data.buff), &len, data.fp);
+	read = getline(&buf, &len, data.fp);
 	while (read >= 0)
 	{
-		data.line_number++;
-		tok = strtok(data.buff, delim);
-		data.n = strtok(NULL, delim);
-		get_func(tok);
-		read = getline(&(data.buff), &len, data.fp);
+		data.line_number += 1;
+		tok = strtok(buf, delim);
+		if (tok && tok[0] != '#')
+		{
+			data.n = strtok(NULL, delim);
+			get_func(tok);
+		}
+		read = getline(&buf, &len, data.fp);
 		tok = NULL;
 		data.n = NULL;
 	}

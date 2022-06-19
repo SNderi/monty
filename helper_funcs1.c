@@ -23,7 +23,7 @@ void _push(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * _pall_handler - handles the pall instruction
+ * _pal - handles the pall instruction
  * @stack: double pointer to the stack to push to
  * @line_number: number of the line in the file
  */

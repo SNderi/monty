@@ -12,7 +12,7 @@ void _push(stack_t **stack, unsigned int line_number)
 {
 	int n;
 
-	if (!_isdigit(data.n))
+	if (!_isdigit(data.n) || data.n == NULL)
 	{
 		fprintf(stderr, PUSH_FAIL, line_number);
 		exit_op();

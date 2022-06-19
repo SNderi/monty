@@ -77,24 +77,17 @@ void _pop(stack_t **stack, unsigned int line_number)
  */
 void _swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = *stack, *node = NULL;
-	int num;
+	int n = 0;
+	stack_t *tmp = NULL;
 
-	if (dlistint_len(*stack) < 2)
+	if (!stack || !(*stack) || !((*stack)->next))
 	{
-		fprintf(stderr, SWAP_FAIL, line_number);
-		exit_op();
+		fprintf(stderr, SWAP_FAIL, line_cnt);
 		exit(EXIT_FAILURE);
 	}
 
-	temp = get_dnodeint_at_index(*stack, 0);
-	num = temp->n;
-	delete_dnodeint_at_index(stack, 0);
-	node = insert_dnodeint_at_index(stack, 1, num);
-	if (!node)
-	{
-		fprintf(stderr, MALLOC_FAIL);
-		exit_op();
-		exit(EXIT_FAILURE);
-	}
+	tmp = *stack;
+	n = tmp->n;
+	tmp->n = tmp->next->n;
+	tmp->next->n = n;
 }

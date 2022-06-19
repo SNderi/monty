@@ -91,6 +91,9 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index);
 #define DIV_FAIL "L%u: can't div, stack too short\n"
 #define DIV_ZERO "L%u: division by zero\n"
 #define MUL_FAIL "L%u: can't mul, stack too short\n"
+#define MOD_FAIL "L%u: can't mod, stack too short\n"
+#define PCHAR_FAIL "L%u: can't pchar, stack empty\n"
+#define OUT_OF_RANGE "L%u: can't pchar, value out of range\n"
 
 int _isdigit(char *d);
 int get_func(char *opc);
@@ -106,5 +109,10 @@ void _nop(stack_t **stack, unsigned int line_number);
 void _sub(stack_t **stack, unsigned int line_number);
 void _div(stack_t **stack, unsigned int line_number);
 void _mul(stack_t **stack, unsigned int line_number);
+void _mod(stack_t **stack, unsigned int line_number);
+void _pchar(stack_t **stack, unsigned int line_number);
+void _pstr(stack_t **stack, unsigned int line_number);
+void _rotl(stack_t **stack, unsigned int line_number);
+void _rotr(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */

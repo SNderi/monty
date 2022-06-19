@@ -30,7 +30,7 @@ int get_func(char *opc)
 		if (strcmp(opc, opcodes[i].opcode) == 0)
 		{
 			opcodes[i].f(&(data.stack), data.line_number);
-			return;
+			return (0);
 		}
 	}
 	fprintf(stderr, UNKNOWN, data.line_number, opc);

@@ -82,7 +82,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 
 	if (!stack || !(*stack) || !((*stack)->next))
 	{
-		fprintf(stderr, SWAP_FAIL, line_cnt);
+		fprintf(stderr, SWAP_FAIL, line_number);
 		exit(EXIT_FAILURE);
 	}
 

@@ -25,7 +25,7 @@ int get_func(char *opc)
 		{"mod", _mod},
 		{"pchar", _pchar},
 		{"pstr", _pstr},
-		{"rot1", _rot1},
+		{"rotl", _rotl},
 		{"rotr", _rotr},
 		{NULL, NULL}
 	};

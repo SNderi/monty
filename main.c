@@ -40,12 +40,6 @@ int main(int ac, char **av)
 		if (tok && tok[0] != '#')
 		{
 			data.n = strtok(NULL, delim);
-			if (!data.n)
-			{
-				fprintf(stderr, PUSH_FAIL, data.line_number);
-				exit_op();
-				exit(EXIT_FAILURE);
-			}
 			get_func(tok);
 		}
 		read = getline(&(data.buff), &len, data.fp);

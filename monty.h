@@ -1,6 +1,8 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define _GNU_SOURCE
+
 /* Libraries */
 #include <stdio.h>
 #include <string.h>
@@ -87,6 +89,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index);
 #define DIV_ZERO "L%u: division by zero\n"
 #define MUL_FAIL "L%u: can't mul, stack too short\n"
 
+int _isdigit(char *d);
 int get_func(char *opc);
 void data_init(void);
 void exit_op(void);

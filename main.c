@@ -1,5 +1,4 @@
 #include "monty.h"
-#define _GNU_SOURCE
 
 data_t data;
 void data_init(void);
@@ -14,8 +13,6 @@ void data_init(void);
 
 int main(int ac, char **av)
 {
-	FILE *fptr;
-	char *buf = NULL;
 	size_t len = 0;
 	ssize_t read;
 	char *tok = NULL;
@@ -27,28 +24,26 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 
-	fptr = fopen(av[1], "r");
-	if (fptr == NULL)
+	data_init();
+	data.fp = fopen(av[1], "r");
+	if (data.fp == NULL)
 	{
 		fprintf(stderr, FILE_ERROR, av[1]);
 		exit(EXIT_FAILURE);
 	}
 
-	data.fp = fptr;
-	data_init();
-	read = getline(&buf, &len, data.fp);
+	read = getline(&(data.buff), &len, data.fp);
 	while (read >= 0)
 	{
 		data.line_number += 1;
-		tok = strtok(buf, delim);
+		tok = strtok(data.buff, delim);
 		if (tok && tok[0] != '#')
 		{
 			data.n = strtok(NULL, delim);
 			get_func(tok);
 		}
-		read = getline(&buf, &len, data.fp);
+		read = getline(&(data.buff), &len, data.fp);
 		tok = NULL;
-		data.n = NULL;
 	}
 	exit_op();
 	return (0);

@@ -38,6 +38,27 @@ int get_func(char *opc)
 }
 
 /**
+ * _isdigit - Check if str is a number
+ * @d: string to check
+ *
+ * Return: 0 if not 1 if is
+ */
+
+int _isdigit(char *d)
+{
+	int i;
+
+	for (i = 0; d[i]; i++)
+	{
+		if (d[i] == '-' && i == 0)
+			continue;
+		if (isdigit(d[i]) == 0)
+			return (0);
+	}
+	return (1);
+}
+
+/**
  * exit_op - Exit operations
  */
 void exit_op(void)

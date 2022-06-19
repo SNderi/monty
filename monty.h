@@ -49,8 +49,11 @@ typedef stack_t dlistint_t;
 
 /**
  * struct data_s - Data packet
- * @opcode: the opcode
- * @arg: opcode argument
+ * @fp: File pointer
+ * @buff: line buffer
+ * @n: integer
+ * @stack: pointer to head of stack
+ * @line_number: Line instruction number
  *
  * Description: opcode and its argument
  */
@@ -93,7 +96,7 @@ int _isdigit(char *d);
 int get_func(char *opc);
 void data_init(void);
 void exit_op(void);
-void _push (stack_t **stack, unsigned int line_number);
+void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
 void _pint(stack_t **stack, unsigned int line_number);
 void _pop(stack_t **stack, unsigned int line_number);

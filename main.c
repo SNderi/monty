@@ -42,7 +42,7 @@ int main(int ac, char **av)
 			data.n = strtok(NULL, delim);
 			if (!data.n)
 			{
-				fprintf(stderr, PUSH_FAIL, line_number);
+				fprintf(stderr, PUSH_FAIL, data.line_number);
 				exit_op();
 				exit(EXIT_FAILURE);
 			}

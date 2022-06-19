@@ -53,7 +53,7 @@ int _isdigit(char *d)
 {
 	int i;
 
-	if (!d || d == '\0')
+	if (!d || *d == '\0')
 		return (0);
 
 	for (i = 0; d[i]; i++)

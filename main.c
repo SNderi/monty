@@ -59,4 +59,29 @@ void data_init(void)
 	data.n = NULL;
 	data.stack = NULL;
 	data.line_number = 0;
+	data.flag = 1;
+}
+
+/**
+ * _stack - handles the stack instruction
+ * @stack: double pointer to the stack to push to
+ * @line_number: number of the line in the file
+ */
+void _stack(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+	data.flag = 1;
+}
+
+/**
+ * _queue - handles the queue instruction
+ * @stack: double pointer to the stack to push to
+ * @line_number: number of the line in the file
+ */
+void _queue(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+	data.flag = 2;
 }

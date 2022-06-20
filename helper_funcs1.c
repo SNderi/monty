@@ -19,7 +19,10 @@ void _push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(data.n);
-	add_dnodeint(stack, n);
+	if (data.flag == 1)
+		add_dnodeint(stack, n);
+	else
+		add_dnodeint_end(stack, n);
 }
 
 /**
